@@ -25,6 +25,7 @@ export const listImage = async (req, res)=> {
 
 export const uploadImage = async (req, res)=> {
     try{
+      console.log('add...');
       const type = req.file.mimetype  
       const name = req.file.originalname
       const data = fs.readFileSync('./uploads/'+req.file.filename)
