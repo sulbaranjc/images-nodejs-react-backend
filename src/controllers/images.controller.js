@@ -7,7 +7,7 @@ export const listImage = async (req, res)=> {
     const [rows] = await pool.query("SELECT * FROM image")
     const namefiles = [];
     rows.map(img => {
-      const namefile='JC-'+img.id+'.png'
+      const namefile='JC-'+img.id.toString().padStart(5, "0")+'.png'
       fs.writeFileSync('./dbimages/'+namefile,img.data)
       namefiles.push(namefile)
       // console.log(namefile);
